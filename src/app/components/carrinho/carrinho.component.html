@@ -1,0 +1,15 @@
+<h1>Carrinho</h1>
+
+<div style="display: flex;">
+  <div>
+    <div *ngFor="let produto of carrinhoService.carrinho" class="item">
+      {{ produto.produto }} - {{ produto.valor | currency:'BRL' }} <button (click)="remover(produto)">Remover</button>
+    </div>
+  </div>
+  <div>
+    <h5>Quantidade</h5>
+    <p>{{ carrinhoService.carrinho.length }}</p>
+    <h5>Total</h5>
+    <p>{{ carrinhoService.calculaTotal() }}</p>
+  </div>
+</div>

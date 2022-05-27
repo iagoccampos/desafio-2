@@ -1,0 +1,22 @@
+.header {
+  background-color: #ddd;
+  padding: 12px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.option {
+  margin: 0px 8px;
+  background-color: #aaa;
+  padding: 8px 20px;
+  font-weight: 800;
+  border-radius: 100px;
+  border: 0px;
+}
+
+.bolder {
+  font-weight: 800;
+}

@@ -1,0 +1,17 @@
+<h1>Produtos</h1>
+
+<h3>Alimentação</h3>
+
+<div style="display: flex; flex-direction: row;">
+  <div *ngFor="let produto of alimentacao" style="margin-right: 8px;">
+    <app-product [nome]="produto.produto" [valor]="produto.valor"></app-product>
+  </div>
+</div>
+
+<h3>Limpeza</h3>
+
+<div style="display: flex; flex-direction: row;">
+  <div *ngFor="let produto of limpeza" style="margin-right: 8px;">
+    <app-product [nome]="produto.produto" [valor]="produto.valor"></app-product>
+  </div>
+</div>
