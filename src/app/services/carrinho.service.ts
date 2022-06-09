@@ -6,7 +6,7 @@ import { Produto } from './produtos.service'
 })
 export class CarrinhoService {
 
-  carrinho: Produto[] = [{ produto: 'água', valor: 1 }, { produto: 'água', valor: 10 }]
+  carrinho: Produto[] = []
 
   constructor() { }
 
@@ -14,16 +14,30 @@ export class CarrinhoService {
   //   return this.carrinho
   // }
 
+  produtoInserido(id: number) {
+    return !!this.carrinho.find((el) => {
+      return el.id === id
+    })
+  }
+
   adicionarProduto(produto: Produto) {
+    if (this.produtoInserido(produto.id)) {
+      return
+    }
+
     this.carrinho.push(produto)
   }
 
-  removeProduto(produto: Produto) {
-    const index = this.carrinho.findIndex((el) => el.produto === produto.produto)
+  removeProduto(id: number) {
+    const index = this.carrinho.findIndex((el) => el.id === id)
 
     if (index != -1) {
       this.carrinho.splice(index, 1)
     }
+  }
+
+  totalDeItens() {
+    return this.carrinho.length
   }
 
   calculaTotal() {

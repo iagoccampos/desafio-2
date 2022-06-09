@@ -8,7 +8,9 @@ import { ProductsComponent } from './components/products/products.component'
 import { ProductComponent } from './components/product/product.component'
 import { CadastroComponent } from './components/cadastro/cadastro.component'
 import { ReactiveFormsModule } from '@angular/forms';
-import { CarrinhoComponent } from './components/carrinho/carrinho.component'
+import { CarrinhoComponent } from './components/carrinho/carrinho.component';
+import { DetalhamentoProdutoComponent } from './components/detalhamento-produto/detalhamento-produto.component';
+import { AutenticacaoComponent } from './components/autenticacao/autenticacao.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { CarrinhoComponent } from './components/carrinho/carrinho.component'
     ProductsComponent,
     ProductComponent,
     CadastroComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    DetalhamentoProdutoComponent,
+    AutenticacaoComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class CarrinhoComponent {
   constructor(public carrinhoService: CarrinhoService) { }
 
   remover(produto: Produto) {
-    this.carrinhoService.removeProduto(produto)
+    this.carrinhoService.removeProduto(produto.id)
   }
 
 }

@@ -1,0 +1,15 @@
+<h1>identificação</h1>
+<form [formGroup]="form">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email">
+    <p *ngIf="form.get('email')?.hasError('required')">Email é requerido</p>
+  </div>
+  <div>
+    <label for="senha">Senha:</label>
+    <input type="password" id="senha" formControlName="senha">
+    <p *ngIf="form.get('senha')?.hasError('required')">Senha é requerida</p>
+  </div>
+  <button (click)="cadastrar()" [disabled]="form.invalid">Cadastrar</button>
+  <button (click)="login()" [disabled]="form.invalid">Entrar</button>
+</form>

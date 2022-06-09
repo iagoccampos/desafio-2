@@ -1,0 +1,13 @@
+<div *ngIf="produto">
+  <button [routerLink]="['/produtos']">voltar</button>
+
+  <div style="height: 120px; width: 120px; background-color: green; border-radius: 5px;"></div>
+
+  {{ produto.produto }}
+  <br>
+  {{ produto.valor | currency: 'BRL' }}
+  <br>
+  <button [class]="{verde: !produtoInserido(), vermelho: produtoInserido()}" (click)="adicionarOuRemover()">
+    {{ produtoInserido() ? 'remover' : 'incluir' }}
+  </button>
+</div>

@@ -10,7 +10,7 @@ import { ProdutosService } from 'src/app/services/produtos.service'
 export class CadastroComponent implements OnInit {
 
   readonly form = new FormGroup({
-    categoria: new FormControl('alimentacao', [Validators.required]),
+    tipo: new FormControl('alimentacao', [Validators.required]),
     produto: new FormControl('', [Validators.required]),
     valor: new FormControl('', [Validators.required])
   })
@@ -32,17 +32,7 @@ export class CadastroComponent implements OnInit {
 
     console.log(this.form.value)
 
-    switch (this.form.get('categoria')?.value) {
-      case 'alimentacao':
-        this.produtoService.cadastraAlimento(this.form.value)
-        break
-      case 'limpeza':
-        this.produtoService.cadastrarLimpeza(this.form.value)
-        break
-      default:
-        console.error('Categoria inválida!')
-        break
-    }
+    this.produtoService.cadastraProduto(this.form.value)
 
     this.form.patchValue(this.valorInicial)
     this.form.markAsUntouched()

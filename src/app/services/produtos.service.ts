@@ -3,39 +3,42 @@ import { Injectable } from '@angular/core'
 export interface Produto {
   produto: string
   valor: number
+  id: number
+  tipo: 'alimentacao' | 'limpeza'
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProdutosService {
-  alimentacao: Produto[] = [
-    { produto: 'Suco', valor: 2.50 },
-    { produto: 'Biscoito', valor: 2.99 },
-    { produto: 'Bolo', valor: 9.99 }
-  ]
-
-  limpeza: Produto[] = [
-    { produto: 'Detergente', valor: 2.50 },
-    { produto: 'Sabão', valor: 2.99 },
-    { produto: 'Pano', valor: 9.99 }
+  produtos: Produto[] = [
+    { tipo: 'alimentacao', produto: 'Suco', valor: 2.50, id: 1 },
+    { tipo: 'alimentacao', produto: 'Biscoito', valor: 2.99, id: 2 },
+    { tipo: 'alimentacao', produto: 'Bolo', valor: 9.99, id: 3 },
+    { tipo: 'limpeza', produto: 'Detergente', valor: 2.50, id: 4 },
+    { tipo: 'limpeza', produto: 'Sabão', valor: 2.99, id: 5 },
+    { tipo: 'limpeza', produto: 'Pano', valor: 9.99, id: 6 }
   ]
 
   constructor() { }
 
-  getProdutosAlimentacao() {
-    return this.alimentacao
+  getProdutos() {
+    return this.produtos
   }
 
-  getProdutosLimpeza() {
-    return this.limpeza
+  getProduto(id: number) {
+    return this.produtos.find((el) => {
+      return el.id === id
+    })
   }
 
-  cadastraAlimento(produto: Produto) {
-    this.alimentacao.push(produto)
+  cadastraProduto(produto: Produto) {
+    produto.id = this.generateId()
+    this.produtos.push(produto)
+    console.log(this.produtos)
   }
 
-  cadastrarLimpeza(produto: Produto) {
-    this.limpeza.push(produto)
+  private generateId() {
+    return Math.floor((Math.random()) * 1000000)
   }
 }

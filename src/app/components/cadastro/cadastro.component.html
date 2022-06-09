@@ -3,7 +3,7 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   <div>
     <label for="categoria">Categoria</label>
-    <select id="categoria" formControlName="categoria">
+    <select id="categoria" formControlName="tipo">
       <option value="alimentacao">Alimentação</option>
       <option value="limpeza">Limpeza</option>
     </select>
@@ -20,5 +20,4 @@
   </div>
 
   <input type="submit" value="Cadastrar">
-  {{ form.invalid }}
 </form>

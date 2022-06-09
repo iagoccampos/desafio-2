@@ -10,15 +10,18 @@
       cadastro
     </button>
     <button class="option" [routerLink]="['carrinho']">
-      carrinho vazio
+      {{ totalDeItens() === 0 ? 'carrinho vazio' : 'carrinho: '  + (getValorTotal() | currency:'BRL') + '(' + totalDeItens() + ')' }}
     </button>
   </div>
   <div>
     <span class="bolder">
-      Olá, visitante
+      {{ dadosUsuario() || 'Olá, visitante' }}
     </span>
-    <button class="option">
+    <button *ngIf="!usuarioLogado()" class="option" [routerLink]="['/login']">
       entrar
+    </button>
+    <button *ngIf="usuarioLogado()" class="option" (click)="logout()">
+      sair
     </button>
   </div>
 </div>
